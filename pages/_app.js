@@ -1,7 +1,14 @@
-import 'tailwindcss/tailwind.css'
+import Head from 'next/head';
+import '../styles/global.css';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function App({ Component, pageProps }) {
+  return (
+    <>
+      <Head>
+        <title>Blog</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
-
-export default MyApp
