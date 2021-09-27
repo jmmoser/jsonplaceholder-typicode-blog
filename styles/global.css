@@ -6,4 +6,8 @@
   .link {
     @apply hover:text-blue-600 focus:text-blue-600
   }
+
+  .page {
+    @apply p-4 sm:px-24
+  }
 }

@@ -3,7 +3,6 @@ import useSWR from 'swr';
 import Header from '../../components/Header';
 import InfoField from '../../components/InfoField';
 import InfoSection from '../../components/InfoSection';
-import Page from '../../components/Page';
 import ErrorMessage from '../../components/ErrorMessage';
 import * as API from '../../lib/api';
 
@@ -14,7 +13,7 @@ export default function Author() {
   const { data: author, error } = useSWR(id ? `/users/${id}` : null, () => API.getAuthor(id));
 
   return (
-    <Page>
+    <div className="page">
       <Header />
       <ErrorMessage error={error} />
       {author && (
@@ -71,6 +70,6 @@ export default function Author() {
           </div>
         </div>
       )}
-    </Page>
+    </div>
   );
 }

@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import Comments from '../../components/Comments';
 import Header from '../../components/Header';
 import Post from '../../components/Post';
-import Page from '../../components/Page';
 import ErrorMessage from '../../components/ErrorMessage';
 import * as API from '../../lib/api';
 
@@ -14,7 +13,7 @@ export default function PostPage() {
   const { data: post, error } = useSWR(id ? `/posts/${id}` : null, () => API.getPost(id));
 
   return (
-    <Page>
+    <div className="page">
       <Header />
       <ErrorMessage error={error} />
       {post && (
@@ -27,6 +26,6 @@ export default function PostPage() {
           </main>
         </div>
       )}
-    </Page>
+    </div>
   );
 }

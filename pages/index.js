@@ -2,7 +2,6 @@ import { useState } from 'react';
 import useSWR from 'swr';
 import { useDebounce } from 'react-use';
 import Posts from '../components/Posts';
-import Page from '../components/Page';
 import ErrorMessage from '../components/ErrorMessage';
 import * as API from '../lib/api';
 
@@ -16,7 +15,7 @@ export default function Home() {
   const { data: posts, error } = useSWR(`/posts?q=${q}`, () => API.listPosts({ q }));
 
   return (
-    <Page>
+    <div className="page">
       <div className="flex justify-center">
         <main className="flex-1 max-w-3xl">
           <h1 className="text-6xl font-bold mt-4 mb-8 text-center">
@@ -37,6 +36,6 @@ export default function Home() {
           <Posts posts={posts} />
         </main>
       </div>
-    </Page>
+    </div>
   );
 }
